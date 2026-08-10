@@ -45,8 +45,7 @@
     windowManager.openbox.enable = true; 
   };
 
-  #services.displayManager.ly.enable = true;
-  services.displayManager.sddm.enable = true;
+  services.displayManager.ly.enable = true;
 
   # COPY THE NIXOS CONFIGURATION FILE AND LINK IT FROM THE RESULTING SYSTEM
   # USEFUL IN CASE YOU DELETE CONFIGURATION.NIX.
