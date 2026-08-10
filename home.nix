@@ -4,9 +4,33 @@
   programs = {
     firefox.enable = true;
     kitty.enable = true;
+
+    bash = {
+      enable = true;
+      shellAliases = {
+        "cl" = "clear";
+        "em" = "$EDITOR";
+        "g" = "git";
+        "ls" = "ls -a -F --color=auto";
+        "ll" = "ls -l";
+
+        ".." = "cd ..";
+        "." = "ls";
+      };
+    };
+
     git = {
       enable = true;
       settings = {
+        user = {
+          name = "vs-123";
+          email = ""; 
+        };
+        url = {
+          "ssh://git@github.com/" = {
+            pushInsteadOf = "https://github.com/";
+          }; 
+        };
         alias = {
           a = "add";
           aa = "add -A";
@@ -53,19 +77,7 @@
         };
       };
     };
-    bash = {
-      enable = true;
-      shellAliases = {
-        "cl" = "clear";
-        "em" = "$EDITOR";
-        "g" = "git";
-        "ll" = "ls -l";
-        "ls" = "ls -a -F --color=auto";
 
-        ".." = "cd ..";
-        "." = "ls";
-      };
-    };
     vim = {
       enable = true;
       defaultEditor = true;
