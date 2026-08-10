@@ -30,8 +30,8 @@
           dto = "difftool -y origin";
           f = "fetch";
           gcfg = "config --global";
-          l = "log --reverse";
-          lr = "log";
+          lr = "log --reverse";
+          l = "log";
           pl = "pull";
           plr = "pull --rebase";
           ps = "push";
