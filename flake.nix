@@ -7,13 +7,13 @@
 
   outputs = { self, nixpkgs }: {
     nixosConfigurations = {
-      kalium-arm = nixpkgs.lib.nixosSystem {
+      karm = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
         modules = [
           ./configuration.nix
         ];
       };
-      kalium-x86-64 = nixpkgs.lib.nixosSystem {
+      kx86 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./configuration.nix
