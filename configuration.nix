@@ -64,9 +64,9 @@
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
     shell = pkgs.zsh;
-    packages = with pkgs; [
-      tree
-    ];
+    #packages = with pkgs; [
+    #  tree
+    #];
   };
 
   programs.firefox.enable = true;
