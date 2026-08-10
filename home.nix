@@ -2,21 +2,77 @@
   home.stateVersion = "26.11";
 
   programs = {
-    firefox.enable = true;
-    kitty.enable = true;
-
     bash = {
       enable = true;
       shellAliases = {
+        "c" = "cd";
         "cl" = "clear";
         "em" = "$EDITOR";
+        "ff" = "fastfetch";
         "g" = "git";
         "gps" = "git push";
         "ls" = "ls -a -F --color=auto";
         "ll" = "ls -l";
+        "mkd" = "mkdir -p";
 
         ".." = "cd ..";
         "." = "ls";
+      };
+    };
+
+    btop = {
+      enable = true; 
+    };
+
+    fastfetch = 
+      {
+        enable = true;
+        settings.modules = [
+          "title"
+          "separator"
+          "os"
+          "kernel"
+          "uptime"
+          "packages"
+          "shell"
+          {
+            type = "de";
+          }
+          {
+            type = "wm";
+            detectPlugin = true;
+          }
+          {
+            type = "wmtheme";
+          }
+          {
+            type = "theme";
+          }
+          "terminal"
+          "memory"
+          "swap"
+          "disk"
+          {
+            type = "localip";
+            format = "0.0.0.0";
+          }
+          "battery"
+          "locale"
+        ];
+      };
+
+
+    feh = {
+      enable = true; 
+    };
+
+    librewolf = {
+      enable = true;
+      profiles.pizza = {
+        isDefault = true;
+        settings = {
+          "browser.tabs.inTitlebar" = 0;   # SHOULD NOT REPLACE NATIVE WINDOW BAR
+        };
       };
     };
 
@@ -79,6 +135,30 @@
       };
     };
 
+    kitty = {
+      enable = true;
+    };
+
+    rofi = {
+      enable = true; 
+      theme = "Paper";
+    };
+
+    qalculate = {
+      enable = true;
+      settings = {
+        General = {
+          colorize = 1;
+          precision = 20;
+          save_definitions_on_exit = 0;
+        };
+        Mode = {
+          calculate_as_you_type = 1; 
+          number_base = 10;
+        }; 
+      };
+    };
+
     vim = {
       enable = true;
       defaultEditor = true;
@@ -91,5 +171,40 @@
     };
   };
 
-  home.packages = with pkgs; [ ];
+  xdg.configFile = {
+    "openbox/rc.xml".source = ./dots/openbox/rc.xml;
+    "openbox/menu.xml".source = ./dots/openbox/menu.xml;
+    "openbox/autostart" = {
+      source = ./dots/openbox/autostart;
+      executable = true;
+    };
+  };
+
+  services = {
+    dunst = {
+      enable = true;
+    };
+
+    flameshot = {
+      enable = true; 
+      settings = {
+        General = {
+          useX11LegacyScreenshot = true;
+        };
+      };
+    };
+
+    picom = {
+      enable = true;
+      vSync = true;
+      settings = {
+        corner-radius = 12; 
+      };
+    }; 
+  };
+
+  home.packages = with pkgs; [
+    arandr 
+    xset
+  ];
 }
