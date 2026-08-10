@@ -22,6 +22,9 @@
 
     btop = {
       enable = true; 
+      settings = {
+        update_ms = 100; 
+      };
     };
 
     fastfetch = 
@@ -198,6 +201,7 @@
       enable = true;
       vSync = true;
       settings = {
+        backend = "xrender";
         corner-radius = 12; 
       };
     }; 
