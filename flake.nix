@@ -16,14 +16,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.extraSpecialArgs = { inherit self nixpkgs home-manager; };
-          #home-manager.users.pizza = ./pizza_home.nix;
-          home-manager.users.pizza = { pkgs, ... }: {
-            home.packages = with pkgs; [
-              cmatrix
-              cowsay
-            ];
-            home.stateVersion = "26.11";
-          };
+          home-manager.users.pizza = ./pizza_home.nix;
         }
       ];
     in
