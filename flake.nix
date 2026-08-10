@@ -16,7 +16,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.extraSpecialArgs = { inherit self nixpkgs home-manager; };
-          home-manager.users.xe = ./xe_home.nix;
+          home-manager.users.xe = ./home.nix;
         }
       ];
     in

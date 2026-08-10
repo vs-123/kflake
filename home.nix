@@ -3,7 +3,6 @@
 
   programs = {
     firefox.enable = true;
-    neovim.enable = true;
     kitty.enable = true;
     bash = {
       enable = true;
@@ -16,6 +15,16 @@
 
         ".." = "cd ..";
         "." = "ls";
+      };
+    };
+    vim = {
+      enable = true;
+      defaultEditor = true;
+      settings = {
+        "number" = true;
+        "relativenumber" = true;
+        "mouse" = "a";
+        "expandtab" = true;
       };
     };
   };
