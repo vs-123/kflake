@@ -15,15 +15,12 @@
 
   time.timeZone = "UTC";
 
-  services.xserver = {
-    enable = true;
-    windowManager.openbox.enable = true;
-  };
-
   services.pipewire = {
     enable = true;
     pulse.enable = true;
   };
+
+  programs.zsh.enable = true;
 
   users.users.xe = {
     isNormalUser = true;
