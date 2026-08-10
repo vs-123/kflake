@@ -11,6 +11,7 @@
         "cl" = "clear";
         "em" = "$EDITOR";
         "g" = "git";
+        "gps" = "git push";
         "ls" = "ls -a -F --color=auto";
         "ll" = "ls -l";
 
