@@ -215,6 +215,9 @@
 
   wayland.windowManager.labwc = {
     enable = true; 
+    autostart = [
+      "swaybg -c 16161d &" 
+    ];
     environment = [
       "TEST_VAR_WAYLAND=42" 
     ];
@@ -251,19 +254,28 @@
               "@direction" = "both";
             };
           } 
-          {
-            "@key" = "W";
-            action = {
-              "@name" = "Move";
-            };
-          } 
-          {
-            "@key" = "W-S";
-            action = {
-              "@name" = "Resize";
-            };
-          } 
         ]; 
+      };
+      mouse = {
+        context = {
+          "@name" = "Frame";
+          mousebind = [
+            {
+              "@button" = "W-Left";
+              "@action" = "Drag";
+              action = {
+                "@name" = "Move"; 
+              };
+            } 
+            {
+              "@button" = "W-S-Left";
+              "@action" = "Drag";
+              action = {
+                "@name" = "Resize"; 
+              };
+            } 
+          ]; 
+        };
       };
     };
   };
@@ -271,5 +283,6 @@
   home.packages = with pkgs; [
     wdisplays 
     xset
+    swaybg
   ];
 }
