@@ -257,25 +257,41 @@
         ]; 
       };
       mouse = {
-        context = {
-          "@name" = "Frame";
-          mousebind = [
-            {
-              "@button" = "W-Left";
-              "@action" = "Drag";
-              action = {
-                "@name" = "Move"; 
-              };
-            } 
-            {
-              "@button" = "W-S-Left";
-              "@action" = "Drag";
-              action = {
-                "@name" = "Resize"; 
-              };
-            } 
-          ]; 
-        };
+        context = [
+          {
+            "@name" = "Frame";
+            mousebind = [
+              {
+                "@button" = "W-Left";
+                "@action" = "Drag";
+                action = {
+                  "@name" = "Move"; 
+                };
+              } 
+              {
+                "@button" = "W-S-Left";
+                "@action" = "Drag";
+                action = {
+                  "@name" = "Resize"; 
+                };
+              } 
+            ]; 
+          }
+          {
+            "@name" = "Desktop";
+            mousebind = [
+              {
+                "@button" = "Right";
+                "@action" = "Click";
+                action = {
+                  "@name" = "ShowMenu"; 
+                  "@menu" = "root-menu"; 
+                  atCursor = "yes";
+                };
+              } 
+            ]; 
+          }
+        ];
       };
     };
   };
