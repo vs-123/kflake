@@ -2,29 +2,7 @@
   home.stateVersion = "26.11";
 
   programs = {
-    bash = {
-      enable = true;
-      shellAliases = {
-        "c" = "cd";
-        "cl" = "clear";
-        "em" = "$EDITOR";
-        "ff" = "fastfetch";
-        "g" = "git";
-        "gps" = "git push";
-        "ls" = "ls -a -F --color=auto";
-        "ll" = "ls -l";
-        "mkd" = "mkdir -p";
-
-        ".." = "cd ..";
-        "." = "ls";
-      };
-      bashrcExtra = ''
-        cf() {
-          query="$1"
-          cd $(echo **/$query* | awk 'BEGIN { FS=" " } { print $1 }')
-        } 
-      '';
-    };
+    bash = import ./programs/bash.nix;
 
     btop = {
       enable = true; 
@@ -33,116 +11,21 @@
       };
     };
 
-    fastfetch = 
-      {
-        enable = true;
-        settings.modules = [
-          "title"
-          "separator"
-          "os"
-          "kernel"
-          "uptime"
-          "packages"
-          "shell"
-          {
-            type = "de";
-          }
-          {
-            type = "wm";
-            detectPlugin = true;
-          }
-          {
-            type = "wmtheme";
-          }
-          {
-            type = "theme";
-          }
-          "terminal"
-          "memory"
-          "swap"
-          "disk"
-          {
-            type = "localip";
-            format = "0.0.0.0";
-          }
-          "battery"
-          "locale"
-        ];
-      };
+    fastfetch = import ./programs/fastfetch.nix;
 
-
-    feh = {
-      enable = true; 
-    };
+    feh.enable = true;
 
     librewolf = {
       enable = true;
-      profiles.pizza = {
-        isDefault = true;
-        settings = {
-          "browser.tabs.inTitlebar" = 0;   # SHOULD NOT REPLACE NATIVE WINDOW BAR
-        };
-      };
+      #profiles.pizza = {
+      #  isDefault = true;
+      #  settings = {
+      #    "browser.tabs.inTitlebar" = 0;   # SHOULD NOT REPLACE NATIVE WINDOW BAR
+      #  };
+      #};
     };
 
-    git = {
-      enable = true;
-      settings = {
-        user = {
-          name = "vs-123";
-          email = ""; 
-        };
-        url = {
-          "ssh://git@github.com/" = {
-            pushInsteadOf = "https://github.com/";
-          }; 
-        };
-        alias = {
-          a = "add";
-          aa = "add -A";
-          b = "branch";
-          bm = "branch -M";
-          bd = "branch -D";
-          c = "commit";
-          ca = "commit --all";
-          cam = "commit --all -m";
-          cfg = "config";
-          ch = "checkout";
-          cl = "clone";
-          cld = "clone --depth 1";
-          clr = "clone --recurse";
-          cldr = "clone --depth 1 --recurse";
-          clrd = "clone --depth 1 --recurse";
-          d = "diff";
-          dh = "diff HEAD";
-          do = "diff origin/main";
-          dt = "difftool -y";
-          dto = "difftool -y origin";
-          f = "fetch";
-          gcfg = "config --global";
-          lr = "log --reverse";
-          l = "log";
-          pl = "pull";
-          plr = "pull --rebase";
-          ps = "push";
-          psu = "push -u";
-          psf = "push -f";
-          rb = "rebase";
-          rba = "rebase --abort";
-          rbc = "rebase --continue";
-          rbi = "rebase -i --committer-date-is-author-date";
-          rbir = "rebase -i --root --committer-date-is-author-date";
-          rem = "remote";
-          rema = "remote add";
-          remr = "remote remove";
-          rmc = "rm --cache";
-          rs = "reset";
-          rsh = "reset --hard";
-          st = "status";
-          sw = "switch";
-        };
-      };
-    };
+    git = import ./programs/git.nix;
 
     kitty = {
       enable = true;
@@ -153,20 +36,7 @@
       theme = "Paper";
     };
 
-    qalculate = {
-      enable = true;
-      settings = {
-        General = {
-          colorize = 1;
-          precision = 20;
-          save_definitions_on_exit = 0;
-        };
-        Mode = {
-          calculate_as_you_type = 1; 
-          number_base = 10;
-        }; 
-      };
-    };
+    qalculate = import ./programs/qalculate.nix;
 
     vim = {
       enable = true;
@@ -213,90 +83,7 @@
     }; 
   };
 
-  wayland.windowManager.labwc = {
-    enable = true; 
-    autostart = [
-      "swaybg -c 16161d &" 
-    ];
-    environment = [
-      "TEST_VAR_WAYLAND=42" 
-    ];
-    rc = {
-      theme = {
-        titlebar.layout = "close,max,iconify:icon";
-      };
-      keyboard = {
-        repeatRate = 50;
-        repeatDelay = 225;
-        keybind = [
-          {
-            "@key" = "W-Space";
-            action = {
-              "@name" = "Execute";
-              "@command" = "rofi -show drun";
-            };
-          } 
-          {
-            "@key" = "W-S-s";
-            action = {
-              "@name" = "Execute";
-              "@command" = "flameshot gui";
-            };
-          } 
-          {
-            "@key" = "W-w";
-            action = {
-              "@name" = "Kill";
-            };
-          } 
-          {
-            "@key" = "W-m";
-            action = {
-              "@name" = "ToggleMaximize";
-              "@direction" = "both";
-            };
-          } 
-        ]; 
-      };
-      mouse = {
-        context = [
-          {
-            "@name" = "Frame";
-            mousebind = [
-              {
-                "@button" = "W-Left";
-                "@action" = "Drag";
-                action = {
-                  "@name" = "Move"; 
-                };
-              } 
-              {
-                "@button" = "W-S-Left";
-                "@action" = "Drag";
-                action = {
-                  "@name" = "Resize"; 
-                };
-              } 
-            ]; 
-          }
-          {
-            "@name" = "Desktop";
-            mousebind = [
-              {
-                "@button" = "Right";
-                "@action" = "Click";
-                action = {
-                  "@name" = "ShowMenu"; 
-                  "@menu" = "root-menu"; 
-                  atCursor = "yes";
-                };
-              } 
-            ]; 
-          }
-        ];
-      };
-    };
-  };
+  wayland.windowManager.labwc = import ./programs/labwc.nix;
 
   home.packages = with pkgs; [
     wdisplays 
