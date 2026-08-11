@@ -226,6 +226,8 @@
         titlebar.layout = "close,max,iconify:icon";
       };
       keyboard = {
+        repeatRate = 50;
+        repeatDelay = 225;
         keybind = [
           {
             "@key" = "W-Space";
