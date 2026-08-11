@@ -17,12 +17,12 @@
 
     librewolf = {
       enable = true;
-      #profiles.pizza = {
-      #  isDefault = true;
-      #  settings = {
-      #    "browser.tabs.inTitlebar" = 0;   # SHOULD NOT REPLACE NATIVE WINDOW BAR
-      #  };
-      #};
+      profiles.pizza = {
+        isDefault = true;
+        settings = {
+          "browser.tabs.inTitlebar" = 0;   # SHOULD NOT REPLACE NATIVE WINDOW BAR
+        };
+      };
     };
 
     git = import ./programs/git.nix;

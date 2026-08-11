@@ -31,7 +31,7 @@
         {
           "@key" = "W-w";
           action = {
-            "@name" = "Kill";
+            "@name" = "Close";
           };
         } 
         {
