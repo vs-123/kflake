@@ -81,6 +81,11 @@
         corner-radius = 12; 
       };
     }; 
+
+    kanshi = {
+      enable = true; 
+      systemdTarget = "labwc-session.target";
+    };
   };
 
   wayland.windowManager.labwc = import ./programs/labwc.nix;
