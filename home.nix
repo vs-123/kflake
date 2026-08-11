@@ -213,20 +213,17 @@
     }; 
   };
 
-  home.packages = with pkgs; [
-    arandr 
-    xset
-  ];
-
   wayland.windowManager.labwc = {
     enable = true; 
     environment = [
       "TEST_VAR_WAYLAND=42" 
     ];
     rc = {
+      theme = {
+        titlebar.layout = "close,max,iconify:icon";
+      };
       keyboard = {
         keybind = [
-          # ROFI -- SUPER + SPACE
           {
             "@key" = "W-Space";
             action = {
@@ -234,8 +231,45 @@
               "@command" = "rofi -show drun";
             };
           } 
+          {
+            "@key" = "W-S-s";
+            action = {
+              "@name" = "Execute";
+              "@command" = "flameshot gui";
+            };
+          } 
+          {
+            "@key" = "W-w";
+            action = {
+              "@name" = "Kill";
+            };
+          } 
+          {
+            "@key" = "W-m";
+            action = {
+              "@name" = "ToggleMaximize";
+              "@direction" = "both";
+            };
+          } 
+          {
+            "@key" = "W";
+            action = {
+              "@name" = "Move";
+            };
+          } 
+          {
+            "@key" = "W-S";
+            action = {
+              "@name" = "Resize";
+            };
+          } 
         ]; 
       };
     };
   };
+
+  home.packages = with pkgs; [
+    wdisplays 
+    xset
+  ];
 }
