@@ -41,9 +41,10 @@
   services.openssh.enable = true;
 
   services.xserver = {
-    enable = true;
-    windowManager.openbox.enable = true; 
+    enable = false;
   };
+
+  programs.labwc.enable = true;
 
   services.displayManager.ly.enable = true;
 
