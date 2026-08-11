@@ -18,6 +18,12 @@
         ".." = "cd ..";
         "." = "ls";
       };
+      bashrcExtra = ''
+        cf() {
+          query="$1"
+          cd $(echo **/$query* | awk 'BEGIN { FS=" " } { print $1 }')
+        } 
+      '';
     };
 
     btop = {
@@ -211,4 +217,25 @@
     arandr 
     xset
   ];
+
+  wayland.windowManager.labwc = {
+    enable = true; 
+    environment = [
+      "TEST_VAR_WAYLAND=42" 
+    ];
+    rc = {
+      keyboard = {
+        keybind = [
+          # ROFI -- SUPER + SPACE
+          {
+            "@key" = "W-Space";
+            action = {
+              "@name" = "Execute";
+              "@command" = "rofi -show drun";
+            };
+          } 
+        ]; 
+      };
+    };
+  };
 }
