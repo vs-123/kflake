@@ -52,14 +52,7 @@
     vesktop = import ./programs/vesktop.nix;
   };
 
-  xdg.configFile = {
-    "openbox/rc.xml".source = ./dots/openbox/rc.xml;
-    "openbox/menu.xml".source = ./dots/openbox/menu.xml;
-    "openbox/autostart" = {
-      source = ./dots/openbox/autostart;
-      executable = true;
-    };
-  };
+  xdg.configFile = { };
 
   services = {
     dunst = {
