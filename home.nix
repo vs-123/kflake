@@ -13,8 +13,6 @@
 
     fastfetch = import ./programs/fastfetch.nix;
 
-    feh.enable = true;
-
     librewolf = {
       enable = true;
       profiles.pizza = {
