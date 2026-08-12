@@ -47,6 +47,9 @@
   programs.labwc.enable = true;
 
   services.displayManager.ly.enable = true;
+  services.ntp = {
+    enable = true;
+  };
 
   # COPY THE NIXOS CONFIGURATION FILE AND LINK IT FROM THE RESULTING SYSTEM
   # USEFUL IN CASE YOU DELETE CONFIGURATION.NIX.
