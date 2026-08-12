@@ -13,7 +13,7 @@
 
   networking.networkmanager.enable = true;
 
-  time.timeZone = "UTC";
+  time.timeZone = "Etc/UTC";
 
   services.pipewire = {
     enable = true;

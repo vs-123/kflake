@@ -102,7 +102,7 @@
       };
       Translate = {
         enabled = true; 
-        autoTranslate = true;
+        autoTranslate = false;
       };
       TypingIndicator = {
         enabled = true; 
