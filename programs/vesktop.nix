@@ -45,6 +45,9 @@
       MentionAvatars = {
         enabled = true; 
       };
+      MessageClickActions = {
+        enabled = true; 
+      };
       MessageLatency = {
         enabled = true; 
         showMillis = true;
@@ -53,6 +56,9 @@
       MessageLogger = {
         enabled = true;
       }; 
+      MoreQuickReactions = {
+        enabled = true; 
+      };
       NoMaskedUrlPaste = {
         enabled = true; 
       };
@@ -121,6 +127,10 @@
       };
       ValidUser = {
         enabled = true; 
+      };
+      ViewRaw = {
+        enabled = true; 
+        clickMethod = "Right";
       };
       VoiceDownload = {
         enabled = true; 
