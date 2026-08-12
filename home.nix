@@ -48,6 +48,8 @@
         "expandtab" = true;
       };
     };
+
+    vesktop = import ./programs/vesktop.nix;
   };
 
   xdg.configFile = {
