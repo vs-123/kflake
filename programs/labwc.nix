@@ -22,6 +22,12 @@
           };
         } 
         {
+          "@key" = "W-r";
+          action = {
+            "@name" = "Reconfigure";
+          };
+        } 
+        {
           "@key" = "W-S-s";
           action = {
             "@name" = "Execute";
@@ -40,6 +46,7 @@
             "@name" = "Kill";
           };
         }
+        #  WINDOW SWITCHER
         {
           "@key" = "W-Tab";
           action = {
@@ -59,6 +66,7 @@
             "@direction" = "both";
           };
         } 
+        #  WORKSPACES
         {
           "@key" = "W-1";
           action = {
