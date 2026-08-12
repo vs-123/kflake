@@ -35,6 +35,24 @@
           };
         } 
         {
+          "@key" = "W-S-w";
+          action = {
+            "@name" = "Kill";
+          };
+        }
+        {
+          "@key" = "W-Tab";
+          action = {
+            "@name" = "NextWindow";
+          };
+        }
+        {
+          "@key" = "W-S-Tab";
+          action = {
+            "@name" = "PreviousWindow";
+          };
+        }
+        {
           "@key" = "W-m";
           action = {
             "@name" = "ToggleMaximize";
@@ -44,6 +62,7 @@
       ]; 
     };
     mouse = {
+      default = {};
       context = [
         {
           "@name" = "Frame";
