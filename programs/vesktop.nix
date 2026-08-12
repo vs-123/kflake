@@ -65,9 +65,6 @@
       NoOnboardingDelay = {
         enabled = true; 
       };
-      NoReplyMention = {
-        enabled = true; 
-      };
       NoProfileThemes = {
         enabled = true; 
       };
@@ -105,6 +102,9 @@
       ShowMeYourName = {
         enabled = true; 
         mode = "nick-user";
+      };
+      TenorGifSearch = {
+        enabled = true; 
       };
       Translate = {
         enabled = true; 
