@@ -59,21 +59,7 @@
 
     flameshot = {
       enable = true; 
-      settings = {
-        General = {
-          useX11LegacyScreenshot = true;
-        };
-      };
     };
-
-    picom = {
-      enable = true;
-      vSync = true;
-      settings = {
-        backend = "xrender";
-        corner-radius = 12; 
-      };
-    }; 
 
     kanshi = {
       enable = true; 
