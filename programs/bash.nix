@@ -8,6 +8,7 @@
     "g" = "git";
     "gps" = "git push";
     "ls" = "ls -a -F --color=auto";
+    "l" = "ls";
     "ll" = "ls -l";
     "mkd" = "mkdir -p";
 
