@@ -55,6 +55,10 @@
   services = {
     dunst = {
       enable = true;
+      settings = {
+        global.font = "Monospace 12"; 
+        global.width = "(200,500)";
+      };
     };
 
     flameshot = {
