@@ -78,4 +78,9 @@
     xset
     swaybg
   ];
+
+  stylix.targets = {
+    vesktop.enable = false;
+    firefox.enable = false;
+  };
 }

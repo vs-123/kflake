@@ -10,13 +10,17 @@
   };
 
   outputs = { self, nixpkgs, home-manager, stylix }: {
+    wp-path = "${self}/wp/wp1.jpg";
     nixosConfigurations = 
     let
       common_modules = [
         ./configuration.nix
         stylix.nixosModules.stylix {
-          stylix.enable = true;
-          stylix.image = ./wp/wp1.jpg;
+          stylix = { 
+            enable = true;
+            image = builtins.toPath self.wp-path;
+            polarity = "dark";
+          };
         }
         home-manager.nixosModules.home-manager
         {
