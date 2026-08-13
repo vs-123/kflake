@@ -80,7 +80,8 @@
   ];
 
   stylix.targets = {
-    vesktop.enable = false;
-    firefox.enable = false;
+    librewolf.enable = false;
+    rofi.enable = true;
+    kitty.enable = true;
   };
 }
