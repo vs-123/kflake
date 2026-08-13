@@ -47,13 +47,8 @@
   programs.labwc.enable = true;
 
   services.displayManager.ly.enable = true;
-  services.ntp = {
-    enable = true;
-    servers = [
-      "time.cloudflare.com"
-      "time.google.com" 
-    ];
-  };
+  services.ntp.enable = false;
+  services.timesyncd.enable = false;
 
   # COPY THE NIXOS CONFIGURATION FILE AND LINK IT FROM THE RESULTING SYSTEM
   # USEFUL IN CASE YOU DELETE CONFIGURATION.NIX.

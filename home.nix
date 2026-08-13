@@ -81,6 +81,7 @@
     wdisplays 
     xset
     swaybg
+    ntp
   ];
 
   stylix.targets = {
