@@ -5,13 +5,16 @@
     nixpkgs.url = "github:nixos/nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    stylix.url = "github:nix-community/stylix";
+    stylix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager }: {
+  outputs = { self, nixpkgs, home-manager, stylix }: {
     nixosConfigurations = 
     let
       common_modules = [
         ./configuration.nix
+        stylix.nixosModules.stylix
         home-manager.nixosModules.home-manager
         {
           home-manager.backupFileExtension = "bkp";
