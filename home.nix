@@ -27,11 +27,15 @@
 
     kitty = {
       enable = true;
+      settings = {
+        cursor_trail = 3;
+        cursor_trail_decay = "0.10 0.25";
+        cursor_shape = "block";
+      };
     };
 
     rofi = {
       enable = true; 
-      #theme = "Paper";
     };
 
     qalculate = import ./programs/qalculate.nix;
@@ -56,7 +60,7 @@
     dunst = {
       enable = true;
       settings = {
-        #global.font = "Monospace 12"; 
+        global.font = "Monospace 14"; 
         global.width = "(200,500)";
       };
     };

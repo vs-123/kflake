@@ -49,6 +49,10 @@
   services.displayManager.ly.enable = true;
   services.ntp = {
     enable = true;
+    servers = [
+      "time.cloudflare.com"
+      "time.google.com" 
+    ];
   };
 
   # COPY THE NIXOS CONFIGURATION FILE AND LINK IT FROM THE RESULTING SYSTEM
