@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, self, ... }: {
   home.stateVersion = "26.11";
 
   programs = {
@@ -31,7 +31,7 @@
 
     rofi = {
       enable = true; 
-      theme = "Paper";
+      #theme = "Paper";
     };
 
     qalculate = import ./programs/qalculate.nix;
@@ -56,7 +56,7 @@
     dunst = {
       enable = true;
       settings = {
-        global.font = "Monospace 12"; 
+        #global.font = "Monospace 12"; 
         global.width = "(200,500)";
       };
     };
@@ -71,7 +71,7 @@
     };
   };
 
-  wayland.windowManager.labwc = import ./programs/labwc.nix;
+  wayland.windowManager.labwc = import ./programs/labwc.nix {inherit self;}; 
 
   home.packages = with pkgs; [
     wdisplays 

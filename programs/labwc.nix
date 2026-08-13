@@ -1,7 +1,8 @@
-{
+{self, ...}: {
   enable = true; 
   autostart = [
-    "swaybg -c 16161d &" 
+    #"swaybg -c 16161d &" 
+    "swaybg -i ${self}/wp/wp1.jpg &"
   ];
   environment = [
     "TEST_VAR_WAYLAND=42" 

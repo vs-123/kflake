@@ -14,7 +14,10 @@
     let
       common_modules = [
         ./configuration.nix
-        stylix.nixosModules.stylix
+        stylix.nixosModules.stylix {
+          stylix.enable = true;
+          stylix.image = ./wp/wp1.jpg;
+        }
         home-manager.nixosModules.home-manager
         {
           home-manager.backupFileExtension = "bkp";
