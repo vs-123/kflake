@@ -65,13 +65,6 @@
     files = [
       "/etc/machine-id"
     ];
-
-    users.xe = {
-      directories = [
-        "my_stuff" 
-        { directory = ".ssh"; mode = "0700"; }
-      ]; 
-    };
   };
 
   # COPY THE NIXOS CONFIGURATION FILE AND LINK IT FROM THE RESULTING SYSTEM

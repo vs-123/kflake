@@ -84,6 +84,16 @@
     ntp
   ];
 
+  home.persistence."/nix/persist" = {
+    directories = [
+      "my_stuff" 
+      { directory = ".ssh"; mode = "0700"; }
+    ]; 
+    files = [
+      "file_A" 
+    ];
+  };
+
   stylix.targets = {
     librewolf.enable = false;
     rofi.enable = true;
