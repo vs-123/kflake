@@ -89,9 +89,7 @@
       "my_stuff" 
       { directory = ".ssh"; mode = "0700"; }
     ]; 
-    files = [
-      "file_A" 
-    ];
+    files = [ ];
   };
 
   stylix.targets = {
