@@ -7,9 +7,10 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     stylix.url = "github:nix-community/stylix";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
+    impermanence.url = "github:nix-community/impermanence";
   };
 
-  outputs = { self, nixpkgs, home-manager, stylix }: {
+  outputs = { self, nixpkgs, home-manager, stylix, impermanence }: {
     wp-path = "${self}/wp/wp1.jpg";
     nixosConfigurations = 
     let
@@ -18,6 +19,7 @@
         stylix.nixosModules.stylix
         ./stylix.nix
         home-manager.nixosModules.home-manager
+        impermanence.nixosModules.impermanence
         {
           home-manager.backupFileExtension = "bkp";
           home-manager.useGlobalPkgs = true;
