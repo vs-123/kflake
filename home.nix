@@ -88,6 +88,7 @@
     directories = [
       "my_stuff" 
       ".config/kanshi" 
+      ".config/vesktop" 
       { directory = ".ssh"; mode = "0700"; }
     ]; 
     files = [ ];
