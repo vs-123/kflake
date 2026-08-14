@@ -27,6 +27,7 @@
   users.users.xe = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
+    initialHashedPassword = "$y$j9T$/pz9fYtiJv5QQpo3bWGyM1$HtzBnyz.oXbsx67r0pU4jBUe9jJ214bXyOD0KXgagwD";
   };
 
   environment.systemPackages = with pkgs; [
