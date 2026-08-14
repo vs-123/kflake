@@ -87,6 +87,7 @@
   home.persistence."/nix/persist" = {
     directories = [
       "my_stuff" 
+      ".config/kanshi" 
       { directory = ".ssh"; mode = "0700"; }
     ]; 
     files = [ ];
