@@ -23,7 +23,7 @@
   programs.zsh.enable = true;
 
   users.mutableUsers = false;
-  users.users.root.initialPassword = "root";
+  users.users.root.initialHashedPassword = "$y$j9T$uXckkG158QQSlevsoNdPZ0$iOWkxSNJsDijGjQsOUsM9cHRknVkVBHqzaVgTb1FL44";
   users.users.xe = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
