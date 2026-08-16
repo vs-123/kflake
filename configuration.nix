@@ -68,6 +68,11 @@
     ];
   };
 
+  zramSwap = {
+    enable = true; 
+    memoryPercent = 50;
+  };
+
   # COPY THE NIXOS CONFIGURATION FILE AND LINK IT FROM THE RESULTING SYSTEM
   # USEFUL IN CASE YOU DELETE CONFIGURATION.NIX.
   # /run/current-system/configuration.nix
