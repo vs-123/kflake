@@ -79,7 +79,6 @@
 
   home.packages = with pkgs; [
     wdisplays 
-    xset
     swaybg
     ntp
   ];
