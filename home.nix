@@ -34,6 +34,10 @@
       };
     };
 
+    mpv = {
+      enable = true; 
+    };
+
     rofi = {
       enable = true; 
     };
@@ -79,6 +83,8 @@
 
   home.packages = with pkgs; [
     wdisplays 
+    wf-recorder
+    slurp
     swaybg
     ntp
   ];
