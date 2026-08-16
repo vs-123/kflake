@@ -87,6 +87,7 @@
     slurp
     swaybg
     ntp
+    ffmpeg
   ];
 
   home.persistence."/nix/persist" = {
