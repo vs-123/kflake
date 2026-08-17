@@ -11,6 +11,8 @@
     "l" = "ls";
     "ll" = "ls -l";
     "mkd" = "mkdir -p";
+    "nrs" = "nr s";
+    "nrb" = "nr b";
 
     ".." = "cd ..";
     "." = "ls";
@@ -20,5 +22,28 @@
           query="$1"
           cd $(echo **/$query* | awk 'BEGIN { FS=" " } { print $1 }')
         } 
+        nr() {
+          local OP=null
+          local CMD=null
+          case $1 in
+          b)
+            OP=boot
+            ;;
+          s)
+            OP=switch
+            ;;
+          *)
+            echo "[ERROR] invalid OP arg"
+            return
+            ;;
+          esac
+          if [[ $# -lt 2 ]]; then
+            CMD="sudo nixos-rebuild $OP"
+          else
+            CMD="sudo nixos-rebuild $OP --flake .#$2 --impure"
+          fi 
+          echo "running: $CMD"
+          $CMD
+        }
   '';
 }
