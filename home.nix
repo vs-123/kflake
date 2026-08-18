@@ -88,6 +88,8 @@
     swaybg
     ntp
     ffmpeg
+    wireguard-tools
+    proton-vpn
   ];
 
   home.persistence."/nix/persist" = {
@@ -95,6 +97,7 @@
       "my_stuff" 
       ".config/kanshi" 
       ".config/vesktop" 
+      ".config/Proton" 
       { directory = ".ssh"; mode = "0700"; }
     ]; 
     files = [ ];

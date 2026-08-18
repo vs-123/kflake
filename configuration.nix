@@ -6,12 +6,16 @@
       /etc/nixos/hardware-configuration.nix
     ];
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
+  };
 
-  networking.hostName = "kalium";
-
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "kalium";
+    firewall.checkReversePath = false;
+    networkmanager.enable = true;
+  };
 
   time.timeZone = "Etc/UTC";
 
@@ -23,11 +27,15 @@
   programs.zsh.enable = true;
 
   users.mutableUsers = false;
-  users.users.root.initialHashedPassword = "$y$j9T$uXckkG158QQSlevsoNdPZ0$iOWkxSNJsDijGjQsOUsM9cHRknVkVBHqzaVgTb1FL44";
+  users.users.root = {
+    initialHashedPassword = 
+      "$y$j9T$uXckkG158QQSlevsoNdPZ0$iOWkxSNJsDijGjQsOUsM9cHRknVkVBHqzaVgTb1FL44";
+  };
   users.users.xe = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
-    initialHashedPassword = "$y$j9T$/pz9fYtiJv5QQpo3bWGyM1$HtzBnyz.oXbsx67r0pU4jBUe9jJ214bXyOD0KXgagwD";
+    extraGroups = [ "wheel" "networkmanager" ];
+    initialHashedPassword = 
+      "$y$j9T$/pz9fYtiJv5QQpo3bWGyM1$HtzBnyz.oXbsx67r0pU4jBUe9jJ214bXyOD0KXgagwD";
   };
 
   environment.systemPackages = with pkgs; [
@@ -55,7 +63,6 @@
 
   environment.persistence."/nix/persist" = {
     hideMounts = true;
-
     directories = [
       "/etc/nixos"
       "/var/log"
@@ -72,6 +79,7 @@
     enable = true; 
     memoryPercent = 50;
   };
+
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
