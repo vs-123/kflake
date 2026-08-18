@@ -46,6 +46,14 @@
             "@name" = "Kill";
           };
         }
+        #  CLIPBOARD
+        {
+          "@key" = "W-v";
+          action = {
+            "@name" = "Execute";
+            "@command" = "sh -c 'cliphist list | rofi -dmenu | cliphist decode | wl-copy'";
+          };
+        } 
         #  WINDOW SWITCHER
         {
           "@key" = "W-Tab";

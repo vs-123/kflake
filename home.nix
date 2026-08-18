@@ -61,6 +61,10 @@
   xdg.configFile = { };
 
   services = {
+    cliphist = {
+      enable = true; 
+    };
+
     dunst = {
       enable = true;
       settings = {
@@ -90,6 +94,7 @@
     ffmpeg
     wireguard-tools
     proton-vpn
+    wl-clipboard
   ];
 
   home.persistence."/nix/persist" = {
