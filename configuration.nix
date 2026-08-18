@@ -11,6 +11,12 @@
     efi.canTouchEfiVariables = true;
   };
 
+  boot.kernel.sysctl = {
+    "vm.swappiness" = 181; 
+  };
+  
+  systemd.services.nix-daemon.environment.TMPDIR = "/var/tmp/nix-daemon";
+
   networking = {
     hostName = "kalium";
     firewall.checkReversePath = false;
@@ -66,6 +72,7 @@
     directories = [
       "/etc/nixos"
       "/var/log"
+      "/var/tmp"
       "/var/lib/nixos"
       "/var/lib/NetworkManager"
     ];
@@ -79,7 +86,6 @@
     enable = true; 
     memoryPercent = 50;
   };
-
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
