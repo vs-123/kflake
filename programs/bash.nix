@@ -22,6 +22,11 @@
           query="$1"
           cd $(echo **/$query* | awk 'BEGIN { FS=" " } { print $1 }')
         } 
+        ddate() {
+          cmd="ntpdate time.google.com; date --set '+1 second'"
+          echo "running: $cmd"
+          sudo sh -c "$cmd"
+        }
         nr() {
           local OP=null
           local CMD=null
